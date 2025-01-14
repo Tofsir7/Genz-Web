@@ -11,7 +11,7 @@ const server = http.createServer((req,res)=>{
   if(pathname==='/' || pathname==='/home'){
     res.writeHead(200, {"content-type":"text/html"});
     let output = tempHome;
-    let path = `'Images/GenZ-logo.png'`
+    let path = `"https://raw.githubusercontent.com/Tofsir7/Genz-Web/refs/heads/master/Images/GenZ-logo.png"`;
     output = output.replace(/{%logo%}/g,path);
     output = output.replace(/{%banner%}/g,"");
     res.end(output);

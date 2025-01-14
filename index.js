@@ -2,27 +2,40 @@
 const http = require('http');
 const url = require('url');
 const fs= require('fs');
-const tempHome = fs.readFileSync("Page.html", 'utf8');
+const path = require('path');
+const tempHome = fs.readFileSync(path.join(__dirname, "Page.html"), 'utf8');
+//const tempHome = fs.readFileSync("Page.html", 'utf8');
 const server = http.createServer((req,res)=>{
-  const {query,pathname} = url.parse(req.url,true);
+  const {pathname} = url.parse(req.url,true);
   console.log(pathname);
   if(pathname==='/' || pathname==='/home'){
     res.writeHead(200, {"content-type":"text/html"});
-    const output = tempHome;
-    const path = "Images\\GenZ logo.png"
+    let output = tempHome;
+    let path = `'Images/GenZ-logo.png'`
     output = output.replace(/{%logo%}/g,path);
+    output = output.replace(/{%banner%}/g,"");
     res.end(output);
-    console.log(output);
+    console.log(req.url);
   }
   else if(pathname==='/Banner.jpg'){
-    const banner =  `<img src="${__dirname}\\Images\\Banner.jpg" id="place"> </img>`;
-    output= tempHome;
+    res.writeHead(200, {"content-type":"text/html"});
+    // fs.readFile(path.join(__dirname, "/Images/Banner.jpg"), 'utf8', (err,data)=>{
+    //   if(err)
+    //     res.end("Image not found!!");
+    //   else{
+    //     let output = tempHome;
+    //     output = tempHome.replace(/{%banner%}/g,data);
+    //     res.end(output);
+    //   }
+    // });
+    const banner =  `<img src='Images/Banner.jpg'> </img>`;
+    let output= tempHome;
     output = output.replace(/{%banner%}/g, banner);
     res.end(output);
     //console.log(output);
   }
   else if (pathname === '/favicon.ico') {
-    res.writeHead(204);
+    res.writeHead(204, {"content-type":  "image/jpeg"});
     res.end();
   }
   else{

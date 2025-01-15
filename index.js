@@ -7,6 +7,7 @@ const replaceTemplate = require('./Modules/replaceTemplate');
 const tempHome = fs.readFileSync(path.join(__dirname, "Page.html"), 'utf8');
 const tempCourse= fs.readFileSync(path.join(__dirname, "Templates/Template-course.html"), 'utf8');
 const data = fs.readFileSync('Dev-data/data.json')
+const enrollForm = fs.readFileSync(path.join(__dirname, "Templates/Enroll-form.html"),'utf8');
 const dataObject = JSON.parse(data);
 //const tempHome = fs.readFileSync("Page.html", 'utf8');
 const server = http.createServer((req,res)=>{
@@ -20,7 +21,7 @@ const server = http.createServer((req,res)=>{
     let path = `"https://raw.githubusercontent.com/Tofsir7/Genz-Web/refs/heads/master/Images/GenZ-logo.png"`;
     output = output.replace(/{%logo%}/g,path);
     output = output.replace(/{%banner%}/g,"");
-    res.end(output);
+    res.write(output);
     //console.log(req.url);
   }
 
@@ -30,13 +31,13 @@ const server = http.createServer((req,res)=>{
     const banner =  `<img src='Images/Banner.jpg'> </img>`;
     let output= tempHome;
     output = output.replace(/{%banner%}/g, banner);
-    res.end(output);
+    res.write(output);
   }
 
 
   else if (pathname === '/favicon.ico') {
     res.writeHead(204, {"content-type":  "text/html"});
-    res.end("This is default");
+    res.write("This is default");
   }
 
 
@@ -47,7 +48,15 @@ const server = http.createServer((req,res)=>{
     const course = dataObject[query.id];
     const output = replaceTemplate(tempCourse,course)
     //console.log();
-    res.end(output);
+    res.write(output);
+  }
+  
+  //Enroll form
+
+  if(pathname==='/enroll'){
+    res.writeHead(200, {"content-type":  "text/html"});
+    const output = enrollForm;
+    res.write(output);
   }
 
   //API page
@@ -55,12 +64,14 @@ const server = http.createServer((req,res)=>{
 
     res.writeHead(200, { 'content-type': 'application/json' });
     
-    res.end(data);
-    //res.end('API call');
+    res.write(data);
+    //res.write('API call');
 }
   else{
-    res.end("Matha Nosto");
+    res.write("Matha Nosto");
   }
+  res.end();
+  console.log(query);
 })
 
 server.listen(9000, '127.0.0.1', ()=>{

@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #5da9dc;
+            background-color: #bae0e6;
             margin: 0;
             padding: 0;
             display: flex;
@@ -16,11 +16,16 @@
             height: 100vh;
         }
         .registration-form {
-            background-color: #4b40df;
+            background-color: #a7d0df;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             width: 400px;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .registration-form:hover {
+            transform: translateY(5px);
+            
         }
         .registration-form h2 {
             margin-top: 0;
@@ -40,26 +45,26 @@
             width: calc(100% - 20px);
             padding: 8px;
             margin-bottom: 15px;
-            border: 1px solid #ccc;
+            border: 1px solid #181818;
             border-radius: 4px;
         }
         .registration-form input[type="submit"] {
             width: 100%;
             padding: 10px;
             border: none;
-            background-color: #007BFF;
-            color: #fff;
+            background-color: #002fff;
+            color: #000000;
             font-size: 16px;
             cursor: pointer;
             border-radius: 4px;
         }
         .registration-form input[type="submit"]:hover {
-            background-color: #0056b3;
+            background-color: #0a950c;
         }
     </style>
 </head>
 <body>
-
+<!-- <div><h1>Skill Up and Secure Your Futuressss</h1></div> -->
 <div class="registration-form">
     <h2>Registration Form</h2>
     <form>

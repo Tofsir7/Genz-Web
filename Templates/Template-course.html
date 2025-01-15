@@ -6,36 +6,47 @@
         }
         
         body {
-            background-color: #f0f8ff;
+            background-color: #bae0e6;
             color: #333;
             font-family: 'Times New Roman', Times, serif;
             position: relative;
             
         }
-    .course-details {
-        /* border: 1px solid #0c5bd0; */
+
+        h2,h2{
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+        h1{
+            color: #1b56e0;
+        }
+        p{
+            padding-top: 10px;
+        }
+    /* .course-details {
+        /* border: 1px solid #0c5bd0;
         width: 100%;
         height: 40%;
         padding-left: 20%;
         padding-right: 20%;
-    }
+    } */
     .course-details h2 {
         margin-top: 0%;
-    }
-    #courseImage{
+    } */
+    /* #courseImage{
            width: 100%;
             padding-left: 25%;
             padding-right: 25%;
             height: 70%;
             text-align: center;
-          }
+          } */
     #heading{
         text-align: center;
     }
     .enroll {
             display: inline-block;
             padding: 10px 25px;
-            background-color: #1f6cd7;
+            background-color: #1b56e0;
             color: white;
             border-radius: 50px;
             text-decoration: none;
@@ -43,15 +54,48 @@
             text-align: center;
             margin-top: 20px;
         }
+        .details-container {
+            align-items: center;
+            display: flex;
+            background-color: #a7d0df;
+            border: 1px solid #020202;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
+            max-width: 100%;
+            width: 60%;
+            height: 75%;
+            margin-top: 5%;
+            margin-left: 20%;
+            margin-right: 20%;
+            transition: transform 0.3s ease-in-out;
+        }
+        .details-container:hover {
+            transform: translateY(-10px);
+        }
+        .image-container {
+            width: 70%;
+            padding: 20px;
+        }
+        .image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .course-details{
+            width: 60%;
+            padding: 20px;
+        }
 </style>
-<div>
-    <img src="{%COURSEIMAGE%}" id="courseImage">
-</div>
-<div class="course-details">
-    <h1 id="heading">{%COURSENAME%}</h1>
-    <p><strong>  Course ID:</strong> {%COURSEID%}</p>
-    <p><strong>  Fee:</strong> {%COURSEFEE%}</p>
-    <p><strong>  Duration:</strong> {%COURSEDURATION%}</p>
-    <p><strong>  Description:</strong> {%COURSEDESCRIPTION%}</p>
-    <a href="/enroll" class="enroll">Enroll Now</a>
+<div class = "details-container">
+    <div class="image-container">
+        <img src="{%COURSEIMAGE%}" alt="courseImage">
+    </div>
+    <div class="course-details">
+        <h1>Learn Today, Lead Tomorrow</h1>
+        <h2 id="heading">{%COURSENAME%}</h2>
+        <p><strong>  Course ID:</strong> {%COURSEID%}</p>
+        <p><strong>  Fee:</strong> {%COURSEFEE%}</p>
+        <p><strong>  Duration:</strong> {%COURSEDURATION%}</p>
+        <p><strong>  Description:</strong> {%COURSEDESCRIPTION%}</p>
+        <a href="/enroll" class="enroll">Enroll Now</a>
+    </div>
 </div>

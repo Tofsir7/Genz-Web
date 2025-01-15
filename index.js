@@ -68,10 +68,10 @@ const server = http.createServer((req,res)=>{
     //res.write('API call');
 }
   else{
-    res.write("Matha Nosto");
+    //res.write("Matha Nosto");
   }
   res.end();
-  console.log(query);
+  //console.log(query);
 })
 
 server.listen(9000, '127.0.0.1', ()=>{

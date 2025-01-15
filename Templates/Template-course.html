@@ -1,0 +1,40 @@
+<style>
+     * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #f0f8ff;
+            color: #333;
+            font-family: 'Times New Roman', Times, serif;
+            position: relative;
+            
+        }
+    .course-details {
+        border: 1px solid #eaeeef;
+        width: 100%;
+        height: 40%;
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+    .course-details h2 {
+        margin-top: 0;
+    }
+    #courseImage{
+           width: 80%;
+            padding-left: 10%;
+            padding-right: 10%;
+          }
+</style>
+<div>
+    <img src="{%COURSEIMAGE%}" id="courseImage">
+</div>
+<div class="course-details">
+    <h2>{%COURSENAME%}</h2>
+    <p><strong>Course ID:</strong> {%COURSEID%}</p>
+    <p><strong>Fee:</strong> {%COURSEFEE%}</p>
+    <p><strong>Duration:</strong> {%COURSEDURATION%}</p>
+    <p><strong>Description:</strong> {%COURSEDESCRIPTION%}</p>
+</div>

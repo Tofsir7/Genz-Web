@@ -74,8 +74,8 @@ const server = http.createServer((req, res) => {
   res.end();
   //console.log(query.course);
 });
-
-server.listen(9000, "127.0.0.1", () => {
+const PORT = process.env.PORT || 9000;
+server.listen(PORT, "0.0.0.0", () => {
   console.log("Runing on port number : 9000");
   //console.log(__dirname);
 });

@@ -41,6 +41,7 @@ const tempCourse = fs.readFileSync(path.join(__dirname, "Templates/Template-cour
 const welcomeCard = fs.readFileSync(path.join(__dirname, "Templates/welcome-card.html"), "utf8");
 const data = fs.readFileSync("Dev-data/data.json"); // data gula read kora hoyeche as STRING format
 const enrollForm = fs.readFileSync(path.join(__dirname, "Templates/Enroll-form.html"), "utf8"); // enroll korar form
+const login = fs.readFileSync(path.join(__dirname, "Templates/login.html"), "utf8");
 const dataObject = JSON.parse(data); // data converted into JSON format
 
 app.use(express.static(path.join(__dirname)));
@@ -80,9 +81,6 @@ app.get('/api', (req, res) => {
 // ✅ FIXED: Register Route (POST Request)
 app.post('/register', async (req, res) => {
   try {
-
-    // const data = req.body.JSON;
-    // console.log(data); 
     const student = new Student(req.body);
     await student.save();
     res.set('content-type', "text/html");
@@ -91,7 +89,10 @@ app.post('/register', async (req, res) => {
     res.status(400).json({ error: error.message });
   }
 });
-
+app.get('/login', (req, res) => {
+  res.set('content-type', "text/html");
+  res.send(login);
+})
 // start server
 const port = 9000;
 app.listen(port, "0.0.0.0", () => {

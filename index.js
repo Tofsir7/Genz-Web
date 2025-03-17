@@ -1,22 +1,54 @@
+
+//requiring resources
 const http = require("http");
 const url = require("url");
 const fs = require("fs");
 const path = require("path");
 const express = require("express")
+const dotenv = require('dotenv');
+const mongoose = require('mongoose');
+const cors = require('cors');
 const app = express();
-const replaceTemplate = require("./Modules/replaceTemplate");  // rtemplate replace korar module ta require kora hoyeche
+//dotenv.config();
+
+//middleware
+app.use(express.json());
+app.use(cors());
+app.use(express.urlencoded({ extended: true }));
+// 🛠️ Import Student Model
+const Student = require("./Models/Students");
+
+// 🔌 Connect to MongoDB
+const MONGO_URI = "mongodb+srv://tofsir:3lUfyHtf1WAlK6qW@test.r9ibl.mongodb.net/genzit?retryWrites=true&w=majority&appName=test";
+const config = { useNewUrlParser: true, useUnifiedTopology: true };
+const connectDB = async () => {
+  try {
+    await mongoose.connect(MONGO_URI, config);
+    console.log("✅ MongoDB Connected Successfully");
+  } catch (error) {
+    console.error("❌ MongoDB Connection Error:", error.message);
+    process.exit(1);
+  }
+};
+connectDB();
+
+
+
+// reading files
+const replaceTemplate = require("./Modules/replaceTemplate");  // template replace korar module ta require kora hoyeche
 const tempHome = fs.readFileSync(path.join(__dirname, "Page.html"), "utf8"); // home er template ta file the read kora hoyeche
 const tempCourse = fs.readFileSync(path.join(__dirname, "Templates/Template-course.html"), "utf8"); // course er template
 const welcomeCard = fs.readFileSync(path.join(__dirname, "Templates/welcome-card.html"), "utf8");
 const data = fs.readFileSync("Dev-data/data.json"); // data gula read kora hoyeche as STRING format
 const enrollForm = fs.readFileSync(path.join(__dirname, "Templates/Enroll-form.html"), "utf8"); // enroll korar form
 const dataObject = JSON.parse(data); // data converted into JSON format
-app.use(express.json())
+
+app.use(express.static(path.join(__dirname)));
 //homepage
 app.get(['/home', '/'], (req, res) => {
   res.set('Content-Type', 'text/html');
   let output = tempHome;
-  let path = `"https://raw.githubusercontent.com/Tofsir7/Genz-Web/refs/heads/master/Images/GenZ-logo.png"`;
+  let path = `"Images/GenZ-logo.png"`;
   output = output.replace(/{%logo%}/g, path);
   res.status(200).send(output);
 });
@@ -45,41 +77,20 @@ app.get('/api', (req, res) => {
   res.send(data);
 });
 
-app.get('/register', async (req, res) => {
-  console.log(req.query);
-  const student = new Student(req.body);
-  console.log(student);
+// ✅ FIXED: Register Route (POST Request)
+app.post('/register', async (req, res) => {
+  try {
+
+    // const data = req.body.JSON;
+    // console.log(data); 
+    const student = new Student(req.body);
+    await student.save();
+    res.set('content-type', "text/html");
+    res.send(welcomeCard);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
 });
-
-//form data submission
-// app.post('/register', async (req, res) => {
-//   try {
-//     console.log(req.body)
-//     const student = new Student(req.body);
-//     await student.save();
-//     res.status(201).json(student);
-//   } catch (error) {
-//     res.status(400).json({ error: error.message });
-//   }
-// });
-
-const mongoose = require('mongoose');
-
-const studentSchema = new mongoose.Schema({
-  fullName: { type: String, required: true },
-  email: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
-  dob: { type: Date, required: true },
-  gender: { type: String, enum: ['male', 'female', 'other'], required: true },
-  course: { type: String, required: true }
-});
-
-const Student = mongoose.model('User', studentSchema);
-
-module.exports = Student;
-
-
-
 
 // start server
 const port = 9000;

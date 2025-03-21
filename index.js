@@ -42,6 +42,7 @@ const welcomeCard = fs.readFileSync(path.join(__dirname, "Templates/welcome-card
 const data = fs.readFileSync("Dev-data/data.json"); // data gula read kora hoyeche as STRING format
 const enrollForm = fs.readFileSync(path.join(__dirname, "Templates/Enroll-form.html"), "utf8"); // enroll korar form
 const login = fs.readFileSync(path.join(__dirname, "Templates/login.html"), "utf8");
+const profile = fs.readFileSync(path.join(__dirname, "Templates/profile.html"), "utf8");
 const dataObject = JSON.parse(data); // data converted into JSON format
 
 app.use(express.static(path.join(__dirname)));
@@ -93,8 +94,33 @@ app.get('/login', (req, res) => {
   res.set('content-type', "text/html");
   res.send(login);
 })
+app.get('/loggedin', async (req, res) => {
+  try {
+    const email = req.query.email;
+    const password = req.query.password;
+
+    // Find student by email
+    const studentInfo = await Student.findOne({ email });
+
+    if (!studentInfo) {
+      return res.send(`<script>alert("Student not found!"); window.location.href='/login';</script>`);
+    }
+
+    // You should verify the password before logging in (bcrypt recommended)
+    if (studentInfo.password !== password) {
+      return res.send(`<script>alert("Invalid Credentials! Please try again."); window.location.href='/login';</script>`);
+    }
+    let output = replaceTemplate(profile, studentInfo);
+    res.set('content-type', "text/html");
+    res.send(output);
+    console.log(studentInfo);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 // start server
 const port = 9000;
 app.listen(port, "0.0.0.0", () => {
   console.log(`App is running on port: ${port}`);
-})
+});

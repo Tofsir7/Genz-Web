@@ -9,17 +9,20 @@
 <body>
     <div class="login-container">
         <h2>Login</h2>
-        <form action="/logedin" method="POST">
+        <form action="/loggedin" method="get">
             <div class="input-group">
-                <label for="username">email</label>
+                <label for="username">e-mail</label>
                 <input type="text" id="email" name="email" required>
             </div>
             <div class="input-group">
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" required>
             </div>
+            <div>
+                <p id="errorAlert"></p>
+            </div>
             <button type="submit" class="login-btn">Login</button>
-            <a href="#" class="forgot-password">Forgot Password?</a>
+            <a href="/forgot" class="forgot-password">Forgot Password?</a>
         </form>
     </div>
 </body>

@@ -9,7 +9,8 @@ const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const app = express();
-//dotenv.config();
+//const multer = require('multer');
+//dotenv.config();\
 
 //middleware
 app.use(express.json());
@@ -82,7 +83,8 @@ app.get('/api', (req, res) => {
 // ✅ FIXED: Register Route (POST Request)
 app.post('/register', async (req, res) => {
   try {
-    const student = new Student(req.body);
+    const student = new Student(req.body)
+
     await student.save();
     res.set('content-type', "text/html");
     res.send(welcomeCard);

@@ -140,7 +140,9 @@ header nav ul li a:hover {
   font-size: 1.1rem;
   margin-bottom: 15px;
 }
-
+.about {
+  text-align: justify;
+}
 .about-section {
   padding: 50px 0;
   background-color: #f0f8ff;

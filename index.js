@@ -115,7 +115,8 @@ app.get('/loggedin', async (req, res) => {
     let output = replaceTemplate(profile, studentInfo);
     res.set('content-type', "text/html");
     res.send(output);
-    console.log(studentInfo);
+    // res.send("Hellow");
+    //console.log(studentInfo);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

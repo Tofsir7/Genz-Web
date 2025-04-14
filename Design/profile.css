@@ -1,62 +1,117 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(
+    135deg,
+    #ffecd2,
+    #fcb69f
+  ); /* Vibrant gradient background */
+  color: #333;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  margin: 0;
+  padding: 20px;
 }
+
+/* Profile Card */
 .profile-card {
-  background: #fff;
-  padding: 40px;
+  background: #ffffff;
   border-radius: 15px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  padding: 30px;
   text-align: center;
-  width: 1050px;
-  height: 500px;
+  max-width: 600px;
+  width: 100%;
+  position: relative;
 }
-.avatar {
+
+/* Avatar */
+.profile-card .avatar {
   width: 120px;
   height: 120px;
-  border-radius: 50%;
-  margin: 0 auto;
-  background-image: url("../Images/profileAvatar.png"); /* Replace with actual image URL */
+  background-image: url("../Images/profileAvatar.png"); /* Use the  avatar */
   background-size: cover;
   background-position: center;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-.username {
-  font-size: 30px;
+
+/* Username */
+.profile-card .username {
+  font-size: 1.8rem;
   font-weight: bold;
-  margin-top: 15px;
+  color: #007acc;
+  margin-bottom: 10px;
 }
-.email {
+
+/* Email */
+.profile-card .email {
+  font-size: 1.2rem;
   color: #555;
-  font-size: 12px;
+  margin-bottom: 20px;
 }
-.info {
-  margin: 20px 0;
-  font-size: 16px;
+
+/* Course Info */
+.profile-card .course h3 {
+  font-size: 1.5rem;
+  color: #ff6f61;
+  margin-bottom: 10px;
 }
-.btn {
+
+.profile-card .info {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Buttons */
+.profile-card .btn {
   display: inline-block;
-  margin: 8px;
-  padding: 10px 18px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  margin: 10px 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
   text-decoration: none;
-  font-size: 14px;
+  border-radius: 5px;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
 }
-.btn-edit {
-  background: #4caf50;
+
+.profile-card .btn-edit {
+  background: #007acc;
   color: white;
 }
-.btn-settings {
-  background: #008cba;
+
+.profile-card .btn-edit:hover {
+  background: #0056b3;
+  transform: scale(1.05);
+}
+
+.profile-card .btn-settings {
+  background: #ff6f61;
   color: white;
 }
-.btn-logout {
-  background: #f44336;
+
+.profile-card .btn-settings:hover {
+  background: #ff3b2f;
+  transform: scale(1.05);
+}
+
+.profile-card .btn-logout {
+  background: #555;
   color: white;
+}
+
+.profile-card .btn-logout:hover {
+  background: #333;
+  transform: scale(1.05);
 }

@@ -7,7 +7,11 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  background: linear-gradient(135deg, #ffecd2, #fcb69f); /* Vibrant gradient background */
+  background: linear-gradient(
+    135deg,
+    #ffecd2,
+    #fcb69f
+  ); /* Vibrant gradient background */
   color: #333;
   display: flex;
   justify-content: center;
@@ -59,7 +63,9 @@ body {
   border-radius: 5px;
   font-size: 1rem;
   background: #f9f9f9;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .input-group input:focus {
@@ -76,7 +82,9 @@ body {
   border-radius: 5px;
   font-size: 1.2rem;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
   width: 100%;
 }
 

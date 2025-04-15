@@ -1,4 +1,3 @@
-
 //requiring resources
 const http = require("http");
 const url = require("url");
@@ -44,6 +43,8 @@ const data = fs.readFileSync("Dev-data/data.json"); // data gula read kora hoyec
 const enrollForm = fs.readFileSync(path.join(__dirname, "Templates/Enroll-form.html"), "utf8"); // enroll korar form
 const login = fs.readFileSync(path.join(__dirname, "Templates/login.html"), "utf8");
 const profile = fs.readFileSync(path.join(__dirname, "Templates/profile.html"), "utf8");
+const contactPage = fs.readFileSync(path.join(__dirname, "Templates/Contact.html"), "utf8");
+const blogPage = fs.readFileSync(path.join(__dirname, "Templates/Blog.html"), "utf8");
 const dataObject = JSON.parse(data); // data converted into JSON format
 
 app.use(express.static(path.join(__dirname)));
@@ -120,6 +121,18 @@ app.get('/loggedin', async (req, res) => {
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
+});
+
+// Contact page route
+app.get('/contact', (req, res) => {
+  res.set('Content-Type', 'text/html');
+  res.status(200).send(contactPage);
+});
+
+// Blog page route
+app.get('/blog', (req, res) => {
+  res.set('Content-Type', 'text/html');
+  res.status(200).send(blogPage);
 });
 
 // start server

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Gen-Z IT</title>
+    <link rel="stylesheet" type="text/css" href="Design\contact.css">
+</head>
+<body>
+    <header>
+        <a href="/home"><img src="Images/GenZ-logo.png" width="200" height="100" alt="GenZ IT"></a>
+        <nav>
+            <a href="/home" class="menu-item">Home</a>
+            <a href="/home" class="menu-item">Courses</a>
+            <a href="/home" class="menu-item">About</a>
+            <a href="/contact" class="menu-item active">Contact</a>
+            <a href="/blog" class="menu-item">Blog</a>
+            <a href="/loggedin" class="menu-item">Profile</a>
+        </nav>
+    </header>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>We'd love to hear from you! Fill out the form below or reach out to us directly.</p>
+            <form action="/submit-contact" method="POST" class="contact-form">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Gen-Z IT. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

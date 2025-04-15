@@ -12,19 +12,16 @@
 <body>
     <header>
         <a href="/home"><img src={%logo%} width="200" height="100" alt="GenZ IT"></a>
-        <div class="dropdown">
-            <button class="dropbtn">Menu</button>
-            <div class="dropdown-content">
-                <a href="#home" class="menu-item">Home</a>
-                <a href="#courses" class="menu-item">Courses</a>
-                <a href="#about" class="menu-item">About</a>
-                <a href="#contact" class="menu-item">Contact</a>
-                <a href="#blog" class="menu-item">Blog</a>
-                <a href="/login" class="menu-item">Login</a>
-            </div>
-        </div>
         
-    
+        <!-- Individual menu items -->
+        <nav>
+            <a href="/home" class="menu-item">Home</a>
+            <a href="#courses" class="menu-item">Courses</a>
+            <a href="/contact" class="menu-item">Contact</a>
+            <a href="/blog" class="menu-item">Blog</a>
+            <a href="#about" class="menu-item">About</a>
+            <a href="/login" class="menu-item">Login</a>
+        </nav>
     </header>
    
     <section id="home" class="banner">
@@ -41,14 +38,14 @@
 
     <section id="courses" class="courses-section">
         <div class="container">
-            <h2>Our Courses</h2>
+            
             
             <!-- Add the search bar here -->
             <div class="search-bar">
                 <input type="text" placeholder="Search courses..." id="course-search-input">
                 <button type="button" id="course-search-button">Search</button>
             </div>
-            
+            <h2>Our Popular Courses</h2>
             <div class="courses-grid">
                 <div class="course-item">
                     <h3>Digital Marketing</h3>

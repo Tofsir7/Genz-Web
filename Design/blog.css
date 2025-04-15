@@ -1,0 +1,177 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f9f9f9; /* Light background for contrast */
+  color: #333;
+  font-family: "Poppins", sans-serif; /* Modern font */
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  background: linear-gradient(
+    90deg,
+    #007acc,
+    #1f7dbd
+  ); /* Gradient background */
+  color: white;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header img {
+  max-height: 80px;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+}
+
+.menu-item {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.menu-item:hover {
+  color: #ffcc00; /* Highlight color on hover */
+}
+
+.menu-item.active {
+  text-decoration: underline;
+  color: coral;
+}
+
+/* Blog Section */
+.blog-section {
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+}
+
+.blog-section h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #1f7dbd;
+  margin-bottom: 30px;
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.blog-item {
+  background: linear-gradient(135deg, #007bff, #1f7dbd);
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.blog-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.blog-item h3 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.blog-item p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.blog-item .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: white;
+  color: #007bff;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.blog-item .btn:hover {
+  background-color: #0056b3;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* Contact Section */
+.contact-section {
+  padding: 50px 20px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.contact-section h2 {
+  font-size: 2rem;
+  color: #1f7dbd;
+  margin-bottom: 20px;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.contact-form button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+contact-form button:hover {
+  background-color: #0056b3;
+}
+
+/* Footer */
+footer {
+  color: black;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 50px;
+}
+
+footer p {
+  margin-bottom: 10px;
+}

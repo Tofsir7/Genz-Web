@@ -8,6 +8,8 @@ const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const app = express();
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
 //const multer = require('multer');
 //dotenv.config();\
 
@@ -35,12 +37,12 @@ connectDB();
 
 
 // reading files
-const replaceTemplate = require("./Modules/replaceTemplate");  // template replace korar module ta require kora hoyeche
-const tempHome = fs.readFileSync(path.join(__dirname, "Page.html"), "utf8"); // home er template ta file the read kora hoyeche
-const tempCourse = fs.readFileSync(path.join(__dirname, "Templates/Template-course.html"), "utf8"); // course er template
+const replaceTemplate = require("./Modules/replaceTemplate");  // required for replacing template
+const tempHome = fs.readFileSync(path.join(__dirname, "Page.html"), "utf8"); 
+const tempCourse = fs.readFileSync(path.join(__dirname, "Templates/Template-course.html"), "utf8"); 
 const welcomeCard = fs.readFileSync(path.join(__dirname, "Templates/welcome-card.html"), "utf8");
-const data = fs.readFileSync("Dev-data/data.json"); // data gula read kora hoyeche as STRING format
-const enrollForm = fs.readFileSync(path.join(__dirname, "Templates/Enroll-form.html"), "utf8"); // enroll korar form
+const data = fs.readFileSync("Dev-data/data.json"); // data read as string format
+const enrollForm = fs.readFileSync(path.join(__dirname, "Templates/Enroll-form.html"), "utf8"); 
 const login = fs.readFileSync(path.join(__dirname, "Templates/login.html"), "utf8");
 const profile = fs.readFileSync(path.join(__dirname, "Templates/profile.html"), "utf8");
 const contactPage = fs.readFileSync(path.join(__dirname, "Templates/Contact.html"), "utf8");
@@ -81,7 +83,7 @@ app.get('/api', (req, res) => {
   res.send(data);
 });
 
-// ✅ FIXED: Register Route (POST Request)
+// Register Route (POST Request)
 app.post('/register', async (req, res) => {
   try {
     const student = new Student(req.body)
@@ -109,7 +111,7 @@ app.get('/loggedin', async (req, res) => {
       return res.send(`<script>alert("Session timeout. Redirect to login page!"); window.location.href='/login';</script>`);
     }
 
-    // You should verify the password before logging in (bcrypt recommended)
+    // verify the password before logging in 
     if (studentInfo.password !== password) {
       return res.send(`<script>alert("Invalid Credentials! Please try again."); window.location.href='/login';</script>`);
     }

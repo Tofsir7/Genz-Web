@@ -41,6 +41,7 @@ nav {
   font-size: 16px;
   font-weight: bold;
   color: white;
+
   transition: color 0.3s ease;
 }
 
@@ -55,7 +56,7 @@ nav {
 
 /* Blog Section */
 .blog-section {
-  padding: 50px 20px;
+  padding: 40px 20px;
   background-color: #f9f9f9;
 }
 
@@ -68,20 +69,22 @@ nav {
 
 .blog-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(300px, 1fr)
+  ); /* Responsive grid */
   gap: 20px;
 }
 
 .blog-item {
+  background: #ffffff;
   background: linear-gradient(135deg, #007bff, #1f7dbd);
-  color: white;
-  padding: 20px;
-  border-radius: 8px;
+  border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Ensures proper spacing between content and button */
 }
 
 .blog-item:hover {
@@ -90,32 +93,35 @@ nav {
 }
 
 .blog-item h3 {
-  font-size: 1.8rem;
-  margin-bottom: 15px;
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 10px;
+  text-align: justify;
 }
 
 .blog-item p {
   font-size: 1rem;
+  color: #555;
   margin-bottom: 20px;
+  text-align: justify;
 }
 
 .blog-item .btn {
-  display: inline-block;
+  align-self: self-end; /* Aligns the button to the left */
+  background: white;
+  color: black;
   padding: 10px 20px;
-  background-color: white;
-  color: #007bff;
   border-radius: 5px;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 1rem;
   font-weight: bold;
   transition:
     background-color 0.3s ease,
-    transform 0.3s ease;
+    transform 0.2s ease;
 }
 
 .blog-item .btn:hover {
-  background-color: #0056b3;
-  color: white;
+  background: #0056b3;
   transform: scale(1.05);
 }
 

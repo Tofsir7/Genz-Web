@@ -66,14 +66,14 @@ app.get('/course', (req, res) => {
     .join("");
   const course = dataObject[query.id];
   const output = replaceTemplate(tempCourse, course);
-  res.write(output);
+  res.send(output);
 });
 
 //enroll course
 app.get('/enroll', (req, res) => {
   res.set('content-type', "text/html");
   const output = enrollForm;
-  res.write(output);
+  res.send(output);
 });
 
 app.get('/api', (req, res) => {
@@ -106,7 +106,7 @@ app.get('/loggedin', async (req, res) => {
     const studentInfo = await Student.findOne({ email });
 
     if (!studentInfo) {
-      return res.send(`<script>alert("Student not found!"); window.location.href='/login';</script>`);
+      return res.send(`<script>alert("Session timeout. Redirect to login page!"); window.location.href='/login';</script>`);
     }
 
     // You should verify the password before logging in (bcrypt recommended)

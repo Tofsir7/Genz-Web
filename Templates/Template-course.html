@@ -1,18 +1,43 @@
-<link rel="stylesheet" type="text/css" href="Design\template-course.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Details</title>
+    <link rel="stylesheet" type="text/css" href="Design\template-course.css">
+</head>
+<body>
+    <header>
+        <a href="/home"><img src="Images/GenZ-logo.png" width="200" height="100" alt="GenZ IT"></a>
+        <nav>
+            <a href="/home" class="menu-item">Home</a>
+            <a href="/contact" class="menu-item">Contact</a>
+            <a href="/blog" class="menu-item">Blog</a>
+            <a href="/loggedin" class="menu-item">Profile</a>
+        </nav>
+    </header>
 
-<div class="details-container">
-    <div class="image-container">
-        <img src="{%COURSEIMAGE%}" alt="Course Image">
+    <div class="details-container">
+        <div class="image-container">
+            <img src="{%COURSEIMAGE%}" alt="Course Image">
+        </div>
+        <div class="course-details">
+            <h1>Learn Today, Lead Tomorrow</h1>
+            <h2 id="heading">{%COURSENAME%}</h2>
+            <p><strong>Course ID:</strong> {%COURSEID%}</p>
+            <p><strong>Fee:</strong> {%COURSEFEE%}</p>
+            <p><strong>Discount:</strong> 100%</p>
+            <p><strong>Duration:</strong> {%COURSEDURATION%}</p>
+            <p><strong>Description:</strong> {%COURSEDESCRIPTION%}</p>
+            
+            <a href="/enroll" class="enroll">Enroll Now</a>
+        </div>
     </div>
-    <div class="course-details">
-        <h1>Learn Today, Lead Tomorrow</h1>
-        <h2 id="heading">{%COURSENAME%}</h2>
-        <p><strong>Course ID:</strong> {%COURSEID%}</p>
-        <p><strong>Fee:</strong> {%COURSEFEE%}</p>
-        <p><strong>Discount:</strong> 100%</p>
-        <p><strong>Duration:</strong> {%COURSEDURATION%}</p>
-        <p><strong>Description:</strong> {%COURSEDESCRIPTION%}</p>
-        
-        <a href="/enroll" class="enroll">Enroll Now</a>
-    </div>
-</div>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Gen-Z IT. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

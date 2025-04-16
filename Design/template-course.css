@@ -7,89 +7,164 @@
 
 body {
   font-family: "Poppins", sans-serif;
+  line-height: 1.6;
   background: linear-gradient(
     135deg,
-    #f0f8ff,
-    #e6f7ff
-  ); /* Soft gradient background */
+    #e3f2fd,
+    #bbdefb
+  ); /* Light gradient background */
   color: #333;
-  line-height: 1.6;
-  padding: 20px;
 }
 
-/* Container Styling */
+/* Header Section */
+header {
+  background: linear-gradient(
+    90deg,
+    #007bff,
+    #1f7dbd
+  ); /* Gradient background */
+  color: white;
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header img {
+  max-height: 80px;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+}
+.course-details p {
+  text-align: justify;
+  margin-bottom: 20px; /* Add some space below paragraphs */
+  font-size: 1.1rem; /* Slightly larger font size for better readability */
+  line-height: 1.8; /* Increase line height for better readability */
+  color: #555; /* Darker text color for better contrast */
+}
+/* Menu Items */
+.menu-item {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.menu-item:hover {
+  background-color: #0056b3;
+  transform: scale(1.1);
+}
+
+/* Details Container */
 .details-container {
   display: flex;
   flex-wrap: wrap;
+  gap: 20px;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
   background: #ffffff;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  margin: 20px auto;
-  max-width: 1200px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  margin-top: 30px;
 }
 
-/* Image Section */
 .image-container {
-  flex: 1 1 40%;
-  background: #093963;
+  flex: 1 1 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
 }
 
 .image-container img {
-  max-width: 100%;
+  max-width: 100%; /* Reduce the maximum width to make the image smaller */
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Course Details Section */
 .course-details {
-  flex: 1 1 60%;
-  padding: 30px;
-  background: linear-gradient(135deg, #007acc, #1f7dbd);
-  color: white;
-  border-radius: 0 10px 10px 0;
+  flex: 1 1 40%;
+  padding: 20px;
 }
 
 .course-details h1 {
-  font-size: 2.5rem;
+  font-size: 2rem;
+  color: #007bff;
   margin-bottom: 10px;
-  color: #ffdd57;
 }
 
 .course-details h2 {
-  font-size: 2rem;
+  font-size: 1.5rem;
+  color: #333;
   margin-bottom: 20px;
-  color: #ffffff;
 }
 
 .course-details p {
-  font-size: 1.2rem;
+  font-size: 1rem;
+  color: #555;
   margin-bottom: 10px;
 }
 
-.course-details strong {
-  color: #ffdd57;
+.course-details p strong {
+  color: orange;
 }
 
-.course-details .enroll {
+.enroll {
   display: inline-block;
-  margin-top: 20px;
-  padding: 12px 25px;
-  background-color: #ff6f61;
+  background: linear-gradient(135deg, #007bff, #0056b3);
   color: white;
+  padding: 12px 20px;
+  border-radius: 5px;
   text-decoration: none;
   font-size: 1.2rem;
   font-weight: bold;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
+  margin-top: 20px;
 }
 
-.course-details .enroll:hover {
-  background-color: #ff3b2f;
+.enroll:hover {
+  background: linear-gradient(135deg, #0056b3, #003f7f);
+  transform: scale(1.05);
+}
+
+/* Footer Section */
+footer {
+  background: linear-gradient(
+    90deg,
+    #1f7dbd,
+    #007bff
+  ); /* Gradient background */
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 50px;
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+  margin: 5px 0;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #ffcc00;
 }
 
 /* Responsive Design */

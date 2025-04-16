@@ -7,6 +7,16 @@
     <link rel="stylesheet" type="text/css" href="Design\login.css">
 </head>
 <body>
+    <header>
+        <a href="/home"><img src="Images/GenZ-logo.png" width="200" height="100" alt="GenZ IT"></a>
+        <nav>
+            <a href="/home" class="menu-item">Home</a>
+            <a href="/contact" class="menu-item">Contact</a>
+            <a href="/blog" class="menu-item">Blog</a>
+            <a href="/login" class="menu-item active">Login</a>
+        </nav>
+    </header>
+
     <div class="login-container">
         <h2>Welcome Back!</h2>
         <p>Please login to your account</p>
@@ -19,12 +29,18 @@
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" placeholder="Enter your password" required>
             </div>
-            <div>
-                <p id="errorAlert"></p>
-            </div>
             <button type="submit" class="login-btn">Login</button>
-            <a href="/forgot" class="forgot-password">Forgot Password?</a>
+            <a href="/forgot-password" class="forgot-password">Forgot Password?</a>
         </form>
     </div>
+
+    <footer>
+        <div class="container">
+            <p>Main Branch: Road 4, Dhanmondi, Dhaka-1205</p>
+            <p>Sub Branch: Govt. College Road, Kushtia</p>
+            <p>Contact Number: 01300632367</p>
+            <p>© 2025 Gen-Z IT. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>

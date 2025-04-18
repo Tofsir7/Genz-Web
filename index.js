@@ -38,11 +38,11 @@ connectDB();
 
 // reading files
 const replaceTemplate = require("./Modules/replaceTemplate");  // required for replacing template
-const tempHome = fs.readFileSync(path.join(__dirname, "Page.html"), "utf8"); 
-const tempCourse = fs.readFileSync(path.join(__dirname, "Templates/Template-course.html"), "utf8"); 
+const tempHome = fs.readFileSync(path.join(__dirname, "Page.html"), "utf8");
+const tempCourse = fs.readFileSync(path.join(__dirname, "Templates/Template-course.html"), "utf8");
 const welcomeCard = fs.readFileSync(path.join(__dirname, "Templates/welcome-card.html"), "utf8");
 const data = fs.readFileSync("Dev-data/data.json"); // data read as string format
-const enrollForm = fs.readFileSync(path.join(__dirname, "Templates/Enroll-form.html"), "utf8"); 
+const enrollForm = fs.readFileSync(path.join(__dirname, "Templates/Enroll-form.html"), "utf8");
 const login = fs.readFileSync(path.join(__dirname, "Templates/login.html"), "utf8");
 const profile = fs.readFileSync(path.join(__dirname, "Templates/profile.html"), "utf8");
 const contactPage = fs.readFileSync(path.join(__dirname, "Templates/Contact.html"), "utf8");
@@ -86,9 +86,41 @@ app.get('/api', (req, res) => {
 // Register Route (POST Request)
 app.post('/register', async (req, res) => {
   try {
-    const student = new Student(req.body)
+    const { fullName, email, password, dob, gender, course } = req.body;
+    if(await Student.findOne({ email })){
+      const warningMessage = `
+        <p style="color: red; font-size: 1rem; text-align: center;">
+          <i>*This e-mail already registered*</i>
+        </p>
+      `;
+      const updatedForm = enrollForm.replace(
+        '<p id="validationErrorMessage"></p>',
+        `${warningMessage}`
+      );
+      return res.status(400).send(updatedForm);
+    }
+    // Password validation: Minimum 8 characters, at least 1 letter and 1 number
+    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
+    if (!passwordRegex.test(password)) {
+      // Inject the warning message into the enrollment form
+      const warningMessage = `
+        <p style="color: red; font-size: 1rem; text-align: center;">
+          <i>*Password length should be atleast 8, 1 character and alphabet*</i>
+        </p>
+      `;
+      const updatedForm = enrollForm.replace(
+        '<p id="validationErrorMessage"></p>',
+        `${warningMessage}`
+      );
+      return res.status(400).send(updatedForm);
+    }
+    
+    // Create a new student and save to the database
+    const student = new Student({ fullName, email, password, dob, gender, course });
     await student.save();
+
+    // Send the welcome card upon successful registration
     res.set('content-type', "text/html");
     res.send(welcomeCard);
   } catch (error) {

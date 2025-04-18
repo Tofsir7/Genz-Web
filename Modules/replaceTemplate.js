@@ -8,5 +8,6 @@ module.exports = (temp, course) => {
     output = output.replace(/{%NAME%}/g, course.fullName);
     output = output.replace(/{%EMAIL%}/g, course.email);
     output = output.replace(/{%COURSE%}/g, course.course);
+    output = output.replace(/{%MESSAGES%}/g, course.message);
     return output;
 }

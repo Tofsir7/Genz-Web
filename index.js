@@ -339,7 +339,31 @@ app.get('/blog', (req, res) => {
   res.status(200).send(blogPage);
 });
 
+// Add a route to handle course search from frontend
+app.post("/search-courses", (req, res) => {
+  const { query } = req.body;
+  if (!query || typeof query !== "string") {
+    return res.status(400).json({ error: "Invalid search query" });
+  }
+  // Simple case-insensitive search in courseName and description
+  const results = dataObject.filter(
+    (course) =>
+      course.courseName.toLowerCase().includes(query.toLowerCase()) ||
+      course.description.toLowerCase().includes(query.toLowerCase())
+  );
+  res.json(results);
+});
 
+// Search functionality route
+app.get('/search-courses', (req, res) => {
+  const query = req.query.query || "";
+  const regex = new RegExp(query, "i"); // Case-insensitive regex
+
+  // Filter courses based on the query
+  const matchingCourses = dataObject.filter(course => regex.test(course.courseName));
+
+  res.json(matchingCourses);
+});
 
 // start server
 const port = 9000;

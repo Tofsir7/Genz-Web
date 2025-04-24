@@ -79,6 +79,7 @@ app.get('/course', (req, res) => {
     .map((el) => replaceTemplate(tempCourse, el))
     .join("");
   const course = dataObject[query.id];
+  console.log(query);
   const output = replaceTemplate(tempCourse, course);
   res.send(output);
 });
@@ -186,8 +187,8 @@ app.post('/forgot-password', async (req, res) => {
 
     // Email options
     const mailOptions = {
-      from: EMAIL_USER, 
-      to: email, 
+      from: EMAIL_USER,
+      to: email,
       subject: "Your OTP for Password Reset",
       text: `Your OTP for password reset is: ${otp}. It is valid for 3 minutes.`,
     };
@@ -232,7 +233,7 @@ app.post('/reset-password', async (req, res) => {
         </script>
       `);
     }
-    
+
     // Check if the email exists in the database
     const student = await Student.findOne({ email });
     if (!student) {
@@ -357,7 +358,7 @@ app.post("/search-courses", (req, res) => {
   const results = dataObject.filter(
     (course) =>
       course.courseName.toLowerCase().includes(query.toLowerCase())
-      //course.description.toLowerCase().includes(query.toLowerCase())
+    //course.description.toLowerCase().includes(query.toLowerCase())
   );
   res.json(results);
 });

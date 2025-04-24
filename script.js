@@ -12,5 +12,6 @@ const element = document
       body: JSON.stringify({ query }),
     });
     const data = await response.json();
-    alert(JSON.stringify(data));
+    
+    //alert(JSON.stringify(data));
   });

@@ -12,17 +12,27 @@ const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const nodemailer = require("nodemailer");
 //const multer = require('multer');
-//dotenv.config();
+dotenv.config();
 //console.log(dotenv);
 //middleware
 app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
+
+// Configure session middleware
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false,
+  cookie: { secure: false, maxAge: 24 * 60 * 60 * 1000 } // 1 day
+}));
+
 // Importing Student Model
 const { Student, Contact } = require("./Models/Students.js");
 
 // Connecting to MongoDB
-const MONGO_URI = "mongodb+srv://tofsir:3lUfyHtf1WAlK6qW@test.r9ibl.mongodb.net/genzit?retryWrites=true&w=majority&appName=test";
+const MONGO_URI = process.env.MONGO_URI;
+//console.log(MONGO_URI);
 const config = { useNewUrlParser: true, useUnifiedTopology: true };
 const connectDB = async () => {
   try {
@@ -169,17 +179,17 @@ app.post('/forgot-password', async (req, res) => {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: "tofsircseiu@gmail.com",
-        pass: "kjam wamx xcpe trbo", //app password used
+        user: EMAIL_USER,
+        pass: EMAIL_PASS, //app password used
       },
     });
 
     // Email options
     const mailOptions = {
-      from: "tofsircseiu@gmail.com", // Sender address
-      to: email, // Receiver's email
+      from: EMAIL_USER, 
+      to: email, 
       subject: "Your OTP for Password Reset",
-      text: `Your OTP for password reset is: ${otp}. It is valid for 10 minutes.`,
+      text: `Your OTP for password reset is: ${otp}. It is valid for 3 minutes.`,
     };
 
     // Send the email
@@ -222,18 +232,7 @@ app.post('/reset-password', async (req, res) => {
         </script>
       `);
     }
-    // if (newPassword !== confirmPassword) {
-    //   const warningMessage = `
-    //     <p style="color: red; font-size: 1rem; text-align: center;">
-    //       <i>*Password doesn't matched*</i>
-    //     </p>
-    //   `;
-    //   const updatedPage = resetPasswordPage.replace(
-    //     '<p id="errorMessage"></p>',
-    //     `${warningMessage}`
-    //   );
-    //   return res.status(400).send(updatedPage);
-    // }
+    
     // Check if the email exists in the database
     const student = await Student.findOne({ email });
     if (!student) {
@@ -284,23 +283,32 @@ app.get('/loggedin', async (req, res) => {
     const email = req.query.email;
     const password = req.query.password;
 
-    // Finding student by email
+    //console.log('Email:', email, 'Password:', password);
+
     const studentInfo = await Student.findOne({ email });
+    //console.log('Student Info:', studentInfo);
 
     if (!studentInfo) {
       return res.send(`<script>alert("Session timeout. Redirect to login page!"); window.location.href='/login';</script>`);
     }
 
-    // verifing the password before logging in 
     if (studentInfo.password !== password) {
+      //console.log('Password Match:', studentInfo.password === password);
       return res.send(`<script>alert("Invalid Credentials! Please try again."); window.location.href='/login';</script>`);
     }
+
+    req.session.user = {
+      email: studentInfo.email,
+      fullName: studentInfo.fullName,
+      course: studentInfo.course
+    };
+    //console.log('Session:', req.session);
+
     let output = replaceTemplate(profile, studentInfo);
     res.set('content-type', "text/html");
     res.send(output);
-    // res.send("Hellow");
-    //console.log(studentInfo);
   } catch (error) {
+    console.error('Error:', error.message);
     res.status(500).json({ error: error.message });
   }
 });
@@ -345,11 +353,11 @@ app.post("/search-courses", (req, res) => {
   if (!query || typeof query !== "string") {
     return res.status(400).json({ error: "Invalid search query" });
   }
-  // Simple case-insensitive search in courseName and description
+  // Simple case-insensitive search in courseName 
   const results = dataObject.filter(
     (course) =>
-      course.courseName.toLowerCase().includes(query.toLowerCase()) ||
-      course.description.toLowerCase().includes(query.toLowerCase())
+      course.courseName.toLowerCase().includes(query.toLowerCase())
+      //course.description.toLowerCase().includes(query.toLowerCase())
   );
   res.json(results);
 });
@@ -363,6 +371,15 @@ app.get('/search-courses', (req, res) => {
   const matchingCourses = dataObject.filter(course => regex.test(course.courseName));
 
   res.json(matchingCourses);
+});
+
+app.get('/logout', (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      return res.status(500).send('Error logging out.');
+    }
+    res.redirect('/login');
+  });
 });
 
 // start server

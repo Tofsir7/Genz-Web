@@ -1,4 +1,4 @@
-/* General Reset */
+
 * {
   margin: 0;
   padding: 0;
@@ -12,12 +12,12 @@ body {
     135deg,
     #e3f2fd,
     #bbdefb
-  ); /* Light gradient background */
+  ); 
   color: #333;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Full viewport height */
+  min-height: 100vh; 
 }
 
 /* Header Section */
@@ -26,9 +26,9 @@ header {
     90deg,
     #007bff,
     #1f7dbd
-  ); /* Gradient background */
+  ); 
   color: white;
-  padding: 20px 40px; /* Spacing for header */
+  padding: 20px 40px; 
   display: flex;
   align-items: center;
   justify-content: space-between;

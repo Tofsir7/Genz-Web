@@ -1,4 +1,4 @@
-/* General Reset */
+
 * {
   margin: 0;
   padding: 0;
@@ -6,9 +6,9 @@
 }
 
 body {
-  background-color: #f9f9f9; /* Light background for contrast */
+  background-color: #f9f9f9; 
   color: #333;
-  font-family: "Poppins", sans-serif; /* Modern font */
+  font-family: "Poppins", sans-serif; 
   line-height: 1.6;
 }
 
@@ -18,7 +18,7 @@ header {
     90deg,
     #007acc,
     #1f7dbd
-  ); /* Gradient background */
+  ); 
   color: white;
   padding: 20px;
   display: flex;
@@ -73,13 +73,13 @@ header img {
   display: block;
 }
 
-/* Navigation Bar */
+
 nav {
   display: flex;
   gap: 15px;
 }
 
-/* Style for menu items */
+
 .menu-item {
   text-decoration: none;
   font-size: 16px;
@@ -92,15 +92,15 @@ nav {
     transform 0.3s ease;
 }
 
-/* Hover effect for menu items */
+
 .menu-item:hover {
-  background-color: #eb6464; /* Darker blue */
+  background-color: #eb6464; 
   transform: scale(1.1);
 }
 
-/* Active menu item style */
+
 .menu-item:active {
-  background-color: #003f7f; /* Even darker blue */
+  background-color: #003f7f; 
   transform: scale(1);
 }
 

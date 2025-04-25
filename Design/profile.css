@@ -1,4 +1,4 @@
-/* General Reset */
+
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +12,7 @@ body {
     135deg,
     #e3f2fd,
     #bbdefb
-  ); /* Light gradient background */
+  ); 
   color: #333;
   display: flex;
   flex-direction: column;
@@ -20,15 +20,15 @@ body {
   min-height: 100vh;
 }
 
-/* Header Section */
+
 header {
   background: linear-gradient(
     90deg,
     #007bff,
     #1f7dbd
-  ); /* Gradient background */
+  ); 
   color: white;
-  padding: 20px 40px; /* Spacing for header */
+  padding: 20px 40px; 
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -78,21 +78,21 @@ nav {
   text-align: center;
   max-width: 700px;
   width: 100%;
-  margin-top: 200px; /* Space below the header */
+  margin-top: 200px; 
 }
 
 .avatar {
   width: 120px;
   height: 120px;
-  background-image: url("../Images/profileAvatar.png"); /* Path to the avatar image */
-  background-size: cover; /* Ensures the image covers the entire circle */
-  background-position: center; /* Centers the image within the circle */
-  border-radius: 50%; /* Makes the avatar circular */
+  background-image: url("../Images/profileAvatar.png"); 
+  background-size: cover; 
+  background-position: center; 
+  border-radius: 50%; 
   margin: 0 auto 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden; /* Ensures the image stays within the circle */
+  overflow: hidden; 
 }
 
 .username {

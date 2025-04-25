@@ -1,4 +1,4 @@
-/* General Reset */
+
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +12,7 @@ body {
     135deg,
     #e3f2fd,
     #bbdefb
-  ); /* Light gradient background */
+  ); 
   color: #333;
 }
 
@@ -22,7 +22,7 @@ header {
     90deg,
     #007bff,
     #1f7dbd
-  ); /* Gradient background */
+  );
   color: white;
   padding: 20px 40px;
   display: flex;
@@ -41,12 +41,12 @@ nav {
 }
 .course-details p {
   text-align: justify;
-  margin-bottom: 20px; /* Add some space below paragraphs */
-  font-size: 1.1rem; /* Slightly larger font size for better readability */
-  line-height: 1.8; /* Increase line height for better readability */
-  color: #555; /* Darker text color for better contrast */
+  margin-bottom: 20px; 
+  font-size: 1.1rem;
+  line-height: 1.8; 
+  color: #555; 
 }
-/* Menu Items */
+
 .menu-item {
   text-decoration: none;
   font-size: 16px;
@@ -86,7 +86,7 @@ nav {
 }
 
 .image-container img {
-  max-width: 100%; /* Reduce the maximum width to make the image smaller */
+  max-width: 100%; 
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }

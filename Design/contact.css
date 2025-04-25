@@ -6,9 +6,9 @@
 }
 
 body {
-  background-color: #f9f9f9; /* Light background for contrast */
+  background-color: #f9f9f9; 
   color: #333;
-  font-family: "Poppins", sans-serif; /* Modern font */
+  font-family: "Poppins", sans-serif; 
   line-height: 1.6;
 }
 
@@ -18,7 +18,7 @@ header {
     90deg,
     #007acc,
     #1f7dbd
-  ); /* Gradient background */
+  ); 
   color: white;
   padding: 20px;
   display: flex;
@@ -27,12 +27,12 @@ header {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Ensure the logo fits within the header */
+
 header img {
   max-height: 80px;
 }
 
-/* Navigation menu styling */
+/* Navigation menu*/
 nav {
   display: flex;
   gap: 20px;
@@ -47,7 +47,7 @@ nav {
 }
 
 .menu-item:hover {
-  color: #ffcc00; /* Highlight color on hover */
+  color: #ffcc00; 
 }
 
 .menu-item.active {
@@ -55,50 +55,6 @@ nav {
   color: coral;
 }
 
-/* Contact Section */
-.contact-section {
-  padding: 50px 20px;
-  background-color: #ffffff;
-  text-align: center;
-}
-
-.contact-section h2 {
-  font-size: 2.5rem;
-  color: #1f7dbd;
-  margin-bottom: 20px;
-}
-
-.contact-form {
-  max-width: 600px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.contact-form input,
-.contact-form textarea {
-  padding: 15px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 100%;
-}
-
-.contact-form button {
-  padding: 15px 20px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
-}
-
-.contact-form button:hover {
-  background-color: #0056b3;
-}
 
 /* Footer */
 footer {

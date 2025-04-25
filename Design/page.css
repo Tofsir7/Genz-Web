@@ -1,4 +1,3 @@
-
 * {
   margin: 0;
   padding: 0;
@@ -6,19 +5,15 @@
 }
 
 body {
-  background-color: #f9f9f9; 
+  background-color: #f9f9f9;
   color: #333;
-  font-family: "Poppins", sans-serif; 
+  font-family: "Poppins", sans-serif;
   line-height: 1.6;
 }
 
 /* Header */
 header {
-  background: linear-gradient(
-    90deg,
-    #007acc,
-    #1f7dbd
-  ); 
+  background: linear-gradient(90deg, #007acc, #1f7dbd);
   color: white;
   padding: 20px;
   display: flex;
@@ -73,12 +68,10 @@ header img {
   display: block;
 }
 
-
 nav {
   display: flex;
   gap: 15px;
 }
-
 
 .menu-item {
   text-decoration: none;
@@ -92,15 +85,13 @@ nav {
     transform 0.3s ease;
 }
 
-
 .menu-item:hover {
-  background-color: #eb6464; 
+  background-color: #eb6464;
   transform: scale(1.1);
 }
 
-
 .menu-item:active {
-  background-color: #003f7f; 
+  background-color: #003f7f;
   transform: scale(1);
 }
 
@@ -174,6 +165,7 @@ nav {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
   margin-top: 30px;
+  justify-content: center;
 }
 
 /* Ensure all course items have the same height */
@@ -189,8 +181,9 @@ nav {
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Ensures even spacing between elements */
-  height: 100%; /* Ensures consistent height for all items */
+  justify-content: space-between;
+  height: 100%;
+  /* align-self: center; */
 }
 
 /* Add specific background images for each course */

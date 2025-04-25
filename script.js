@@ -1,4 +1,6 @@
-console.log("Hello, World!", document);
+// console.log("Hello, World!", document);
+// const fs = require("fs");
+// const tempCourse = fs.readFileSync(path.join(__dirname, "Templates/Template-course.html"), "utf8");
 const element = document
   .querySelector("#course-search-button")
   .addEventListener("click", async function () {

@@ -11,6 +11,7 @@ const app = express();
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const nodemailer = require("nodemailer");
+const bcrypt = require("bcrypt");
 //const multer = require('multer');
 dotenv.config();
 //console.log(dotenv);
@@ -130,7 +131,9 @@ app.post('/register', async (req, res) => {
     }
 
     // Creating a new student and saving to the database
-    const student = new Student({ fullName, email, password, dob, gender, course });
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const student = new Student({ fullName, email, password: hashedPassword, dob, gender, course });
+    //const student = new Student({ fullName, email, password, dob, gender, course });
     await student.save();
 
 
@@ -293,8 +296,8 @@ app.get('/loggedin', async (req, res) => {
       return res.send(`<script>alert("Session timeout. Redirect to login page!"); window.location.href='/login';</script>`);
     }
 
-    if (studentInfo.password !== password) {
-      //console.log('Password Match:', studentInfo.password === password);
+    const isMatch = await bcrypt.compare(password, studentInfo.password);
+    if (!isMatch) {
       return res.send(`<script>alert("Invalid Credentials! Please try again."); window.location.href='/login';</script>`);
     }
 

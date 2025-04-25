@@ -27,6 +27,7 @@
     "axobject-query": "^4.1.0",
     "balanced-match": "^1.0.0",
     "basic-auth": "^2.0.1",
+    "bcrypt": "^5.1.1",
     "bl": "^2.2.1",
     "bluebird": "^3.5.1",
     "body-parser": "^1.20.3",
@@ -329,6 +330,6 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "nodemon": "^3.1.9"
+    "nodemon": "^3.1.10"
   }
 }

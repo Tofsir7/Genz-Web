@@ -389,5 +389,5 @@ app.get('/logout', (req, res) => {
 // start server
 const port = 9000;
 app.listen(port, "0.0.0.0", () => {
-  console.log(`App is running on port: ${port}`);
+  console.log(`App is running on port: http://127.0.0.1:${port}`);
 });

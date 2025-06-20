@@ -59,7 +59,7 @@ const login = fs.readFileSync(path.join(__dirname, "Templates/login.html"), "utf
 const profile = fs.readFileSync(path.join(__dirname, "Templates/profile.html"), "utf8");
 const contactPage = fs.readFileSync(path.join(__dirname, "Templates/Contact.html"), "utf8");
 const blogPage = fs.readFileSync(path.join(__dirname, "Templates/Blog.html"), "utf8");
-const contactMessagesPage = fs.readFileSync(path.join(__dirname, "Templates/Contact-messages.html"), "utf8");
+const contactMessagesPage = fs.readFileSync(path.join(__dirname, "Templates/contact-messages.html"), "utf8");
 const dataObject = JSON.parse(data); // data converted into JSON format
 
 app.use(express.static(path.join(__dirname)));

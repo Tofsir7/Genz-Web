@@ -5,12 +5,5 @@
       "src": "index.js",
       "use": "@vercel/node"
     }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/index.js"
-    }
   ]
 }
-// This configuration file is for deploying a Node.js application on Vercel.

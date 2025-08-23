@@ -15,12 +15,12 @@ body {
   ); 
   color: #333;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  min-height: 100vh; 
+  min-height: 100vh;
 }
 
-/* Header Section */
+
 header {
   background: linear-gradient(
     90deg,
@@ -69,106 +69,106 @@ nav {
   background-color: #003f7f;
 }
 
-/* Login Container */
-.login-container {
+/* Profile Card */
+.profile-card {
   background: #ffffff;
   border-radius: 15px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   padding: 30px;
   text-align: center;
-  max-width: 400px;
+  max-width: 700px;
   width: 100%;
-  /* margin-top: 50px; Space below the header */
+  margin-top: 200px; 
 }
 
-.login-container h2 {
-  font-size: 2rem;
-  color: #007acc;
+.avatar {
+  width: 120px;
+  height: 120px;
+  background-image: url("../Images/profileAvatar.png"); 
+  background-size: cover; 
+  background-position: center; 
+  border-radius: 50%; 
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; 
+}
+
+.username {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333;
   margin-bottom: 10px;
 }
 
-.login-container p {
+.email {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.course h3 {
+  font-size: 1.2rem;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.info {
   font-size: 1rem;
   color: #555;
   margin-bottom: 10px;
 }
 
-/* Input Group */
-.input-group {
-  margin-bottom: 20px;
-  text-align: left;
-}
-
-.input-group label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 5px;
-  color: #333;
-}
-
-.input-group input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
   font-size: 1rem;
-  background: #f9f9f9;
-  transition:
-    border-color 0.3s ease,
-    box-shadow 0.3s ease;
-}
-
-.input-group input:focus {
-  border-color: #007acc;
-  box-shadow: 0 0 8px rgba(0, 122, 204, 0.5);
-}
-
-/* Login Button */
-.login-btn {
-  background: linear-gradient(135deg, #007acc, #0056b3);
+  font-weight: bold;
   color: white;
-  padding: 12px 20px;
-  border: none;
   border-radius: 5px;
-  font-size: 1.2rem;
-  cursor: pointer;
+  text-decoration: none;
+  margin: 10px 5px;
   transition:
     background-color 0.3s ease,
     transform 0.2s ease;
-  width: 100%;
 }
 
-.login-btn:hover {
-  background: linear-gradient(135deg, #0056b3, #003f7f);
+.btn-edit {
+  background: #007bff;
+}
+
+.btn-edit:hover {
+  background: #0056b3;
   transform: scale(1.05);
 }
 
-/* Forgot Password Link */
-.forgot-password {
-  display: block;
-  margin-top: 15px;
-  font-size: 0.9rem;
-  color: #007acc;
-  text-decoration: none;
-  transition: color 0.3s ease;
+.btn-settings {
+  background: #28a745;
 }
 
-.forgot-password:hover {
-  color: #0056b3;
+.btn-settings:hover {
+  background: #1e7e34;
+  transform: scale(1.05);
+}
+
+.btn-logout {
+  background: #dc3545;
+}
+
+.btn-logout:hover {
+  background: #c82333;
+  transform: scale(1.05);
 }
 
 /* Footer Section */
 footer {
-  background: linear-gradient(
-    90deg,
-    #1f7dbd,
-    #007bff
-  ); /* Gradient background */
-  color: white;
+  /* background: linear-gradient(90deg, #1f7dbd, #007bff); */
+  color: black;
   text-align: center;
-  padding: 10px 0;
-  margin-top: 40px;
-  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px 0;
+  margin-top: 50px;
+  /* box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); */
   position: absolute;
   bottom: 0;
   width: 100%;

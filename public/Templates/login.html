@@ -20,7 +20,7 @@
     <div class="login-container">
         <h2>Welcome Back!</h2>
         <p>Please login to your account</p>
-        <form action="/profile" method="post">
+        <form action="/loggedin" method="get">
             <div class="input-group">
                 <label for="email">E-mail</label>
                 <input type="text" id="email" name="email" placeholder="Enter your email" required>
@@ -29,7 +29,6 @@
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" placeholder="Enter your password" required>
             </div>
-            <p id="ERROR"></p>
             <button type="submit" class="login-btn">Login</button>
             <a href="/forgot-password" method="post" class="forgot-password">Forgot Password?</a>
         </form>

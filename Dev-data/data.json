@@ -2,9 +2,9 @@
   "_id": {
     "$oid": "67d7a416af77e29105c873bc"
   },
-  "id": "DM-101",
+  "id": 0,
   "courseName": "Digital Marketing",
-  "courseFee": "6,000 BDT",
+  "courseFee": 6000,
   "courseDuration": "3 Months",
   "image": "Images/Digital-marketing.jpg",
   "description": "Dive into the dynamic world of Digital Marketing and master the art of online promotion. This course covers essential topics like SEO, social media marketing, email campaigns, content strategy, and analytics. You'll learn how to create impactful digital campaigns, drive traffic, and convert visitors into customers. Perfect for aspiring marketers looking to excel in the digital age."
@@ -13,9 +13,9 @@
   "_id": {
     "$oid": "67d7a416af77e29105c873bd"
   },
-  "id": "CW-101",
+  "id": 1,
   "courseName": "Content Writing",
-  "courseFee": "4,000 BDT",
+  "courseFee": 4000,
   "courseDuration": "3 Months",
   "image": "Images/Content-writing.jpg",
   "description": "Unlock the power of words with our Content Writing course. This program focuses on crafting compelling content for blogs, websites, social media, and more. You'll explore various writing styles, learn to optimize content for SEO, and create engaging narratives that captivate audiences. Ideal for those who wish to build a career in writing and storytelling."
@@ -24,9 +24,9 @@
   "_id": {
     "$oid": "67d7a416af77e29105c873be"
   },
-  "id": "GD-101",
+  "id": 2,
   "courseName": "Graphics Design",
-  "courseFee": "12,000 BDT",
+  "courseFee": 12000,
   "courseDuration": "6 Months",
   "image": "Images/Graphics-design.jpg",
   "description": "Bring your creative visions to life with our Graphics Design course. From basics to advanced techniques, you'll learn how to design stunning visuals using tools like Adobe Photoshop, Illustrator, and InDesign. The course includes branding, typography, UI/UX design, and more. Perfect for aspiring designers aiming to create impactful visual content."
@@ -35,9 +35,9 @@
   "_id": {
     "$oid": "67d7a416af77e29105c873bf"
   },
-  "id": "WD-101",
+  "id": 3,
   "courseName": "Web Design",
-  "courseFee": "10,000 BDT",
+  "courseFee": 10000,
   "courseDuration": "6 Months",
   "image": "Images/Web-design.jpg",
   "description": "Build beautiful and functional websites with our Web Design course. This comprehensive program covers HTML, CSS, JavaScript, and responsive design. You'll learn to create user-friendly websites that are aesthetically pleasing and highly functional. Ideal for those wanting to start a career in web development or enhance their design skills."
@@ -46,9 +46,9 @@
   "_id": {
     "$oid": "67fdddbe9092b9cad231d7d0"
   },
-  "id": "APP-101",
+  "id": 4,
   "courseName": "App Development (Android)",
-  "courseFee": "14,000 BDT",
+  "courseFee": 14000,
   "courseDuration": "6 Months",
   "image": "Images/oops.gif",
   "description": "Build powerful Android apps from scratch. This course covers Java/Kotlin, Android Studio, UI/UX design, Firebase integration, and app deployment. Best for those looking to create mobile solutions or work in the growing app development industry."
@@ -57,9 +57,9 @@
   "_id": {
     "$oid": "67fdddbe9092b9cad231d7d3"
   },
-  "id": "DA-101",
+  "id": 5,
   "courseName": "Data Analysis with Excel",
-  "courseFee": "6,000 BDT",
+  "courseFee": 6000,
   "courseDuration": "3 Months",
   "image": "Images/oops.gif",
   "description": "Harness the power of data using Excel. Learn functions, pivot tables, charts, dashboards, and basic data visualization techniques. This course is perfect for beginners and professionals looking to boost their analytical skills."
@@ -68,9 +68,9 @@
   "_id": {
     "$oid": "67fdddbe9092b9cad231d7cf"
   },
-  "id": "SM-101",
+  "id": 6,
   "courseName": "Social Media Marketing",
-  "courseFee": "5,500 BDT",
+  "courseFee": 5500,
   "courseDuration": "3 Months",
   "image": "Images/oops.gif",
   "description": "Boost your brand's presence online with our Social Media Marketing course. Explore strategies for platforms like Facebook, Instagram, LinkedIn, and TikTok. Learn content planning, audience targeting, and analytics to drive engagement and conversions."
@@ -79,9 +79,9 @@
   "_id": {
     "$oid": "67fdddbe9092b9cad231d7d4"
   },
-  "id": "CS-101",
+  "id": 7,
   "courseName": "Cybersecurity Fundamentals",
-  "courseFee": "9,000 BDT",
+  "courseFee": 9000,
   "courseDuration": "4 Months",
   "image": "Images/oops.gif",
   "description": "Protect digital assets with our Cybersecurity course. Learn about network security, ethical hacking, firewalls, malware, and data protection strategies. Great for anyone interested in securing information systems."
@@ -90,9 +90,9 @@
   "_id": {
     "$oid": "67fdddbe9092b9cad231d7d6"
   },
-  "id": "WP-101",
+  "id": 8,
   "courseName": "WordPress Development",
-  "courseFee": "8,500 BDT",
+  "courseFee": 8500,
   "courseDuration": "4 Months",
   "image": "Images/oops.gif",
   "description": "Create stunning websites using WordPress. Learn theme customization, plugin integration, SEO optimization, and eCommerce setup. Ideal for freelancers and small business owners looking to build their own sites."
@@ -101,9 +101,9 @@
   "_id": {
     "$oid": "67fdddbe9092b9cad231d7cd"
   },
-  "id": "FS-101",
+  "id": 9,
   "courseName": "Full Stack Development",
-  "courseFee": "18,000 BDT",
+  "courseFee": 18000,
   "courseDuration": "6 Months",
   "image": "Images/oops.gif",
   "description": "Become a versatile web developer with our Full Stack Development course. Learn both front-end and back-end technologies including HTML, CSS, JavaScript, React, Node.js, MongoDB, and more. Ideal for those seeking a complete web development career path."
@@ -112,9 +112,9 @@
   "_id": {
     "$oid": "67fdddbe9092b9cad231d7ce"
   },
-  "id": "VD-101",
+  "id": 10,
   "courseName": "Video Editing",
-  "courseFee": "8,000 BDT",
+  "courseFee": 8000,
   "courseDuration": "4 Months",
   "image": "Images/oops.gif",
   "description": "Master the art of visual storytelling with our Video Editing course. Learn to use tools like Adobe Premiere Pro and After Effects to create professional-quality videos for YouTube, social media, or corporate clients. Perfect for aspiring editors and content creators."
@@ -123,9 +123,9 @@
   "_id": {
     "$oid": "67fdddbe9092b9cad231d7d1"
   },
-  "id": "PY-101",
+  "id": 11,
   "courseName": "Python Programming",
-  "courseFee": "7,000 BDT",
+  "courseFee": 7000,
   "courseDuration": "3 Months",
   "image": "Images/oops.gif",
   "description": "Learn Python, one of the most in-demand programming languages. This course covers the basics to advanced topics including data structures, OOP, file handling, and introductory data analysis. Perfect for beginners and aspiring developers."
@@ -134,9 +134,9 @@
   "_id": {
     "$oid": "67fdddbe9092b9cad231d7d2"
   },
-  "id": "UIUX-101",
+  "id": 12,
   "courseName": "UI/UX Design",
-  "courseFee": "11,000 BDT",
+  "courseFee": 11000,
   "courseDuration": "5 Months",
   "image": "Images/oops.gif",
   "description": "Design seamless user experiences with our UI/UX Design course. Learn principles of user interface design, wireframing, prototyping using tools like Figma and Adobe XD. Ideal for designers aiming to enhance usability and aesthetics."
@@ -145,9 +145,9 @@
   "_id": {
     "$oid": "67fdddbe9092b9cad231d7d5"
   },
-  "id": "ML-101",
+  "id": 13,
   "courseName": "Machine Learning Basics",
-  "courseFee": "13,000 BDT",
+  "courseFee": 13000,
   "courseDuration": "5 Months",
   "image": "Images/oops.gif",
   "description": "Step into AI with our Machine Learning Basics course. Understand supervised and unsupervised learning, regression, classification, and use libraries like Scikit-Learn and TensorFlow. Best for data enthusiasts and future AI developers."

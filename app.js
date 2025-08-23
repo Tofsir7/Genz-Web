@@ -10,7 +10,7 @@ const cookieParser = require('cookie-parser');
 
 
 dotenv.config();
-const authController = require("./Controller/authController.js").signup;
+const authentication = require("./Controller/authController.js");
 //middleware
 app.use(express.json());
 app.use(cors());
@@ -52,7 +52,7 @@ app.get(['/home', '/'], homeRoute);
 app.get('/course/:id', courseRoute);
 app.get('/enroll', enrollRoute);
 app.get('/login', loginRoute)
-app.get('/profile', loginRoute); //Autharisation korbo (TODO)
+app.get('/profile', authentication); //Autharisation korbo (TODO)
 app.get('/logout', logoutRoute);
 
 //POST requests

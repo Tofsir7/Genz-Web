@@ -1,8 +1,8 @@
 const fs = require('fs');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 const replaceTemplate = require('../Controller/replaceTemplate');
 const {Student} = require('../Models/Students')
-
 const profileRoute = async (req, res) => {
   try {
     const profile = fs.readFileSync("Templates/profile.html", "utf8");
@@ -23,12 +23,12 @@ const profileRoute = async (req, res) => {
       return res.send(output);
     }
 
-    // req.session.user = {
-    //   email: studentInfo.email,
-    //   fullName: studentInfo.fullName,
-    //   course: studentInfo.course
-    // };
-    //console.log('Session:', req.session);
+    // token generation
+    const token = jwt.sign({email, password},process.env.JWT_SECRET,{expiresIn: "30d"});
+    res.cookie("token", token,{httpOnly: true})
+
+    console.log(`The token is : ${token}`);
+  
 
     let output = replaceTemplate(profile, studentInfo);
     res.set('content-type', "text/html");

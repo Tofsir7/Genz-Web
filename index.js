@@ -53,6 +53,7 @@ app.get('/course/:id', courseRoute);
 app.get('/enroll', enrollRoute);
 app.get('/login', loginRoute)
 app.get('/profile', loginRoute); //Autharisation korbo (TODO)
+app.get('/logout', logoutRoute);
 
 //POST requests
 app.post('/profile', profileRoute)
@@ -83,6 +84,5 @@ app.get('/reset-password', (req, res) => {
   res.status(200).send(resetPasswordPage);
 });
 
-app.get('/logout', logoutRoute);
 
 module.exports = app;

@@ -1,88 +1,23 @@
-//requiring resources
-const fs = require("fs");
-const path = require("path");
-const express = require("express");
-const dotenv = require('dotenv');
-const cors = require('cors');
-const app = express();
-const session = require('express-session');
-const cookieParser = require('cookie-parser');
+const mongoose = require('mongoose');
+const app = require('./index');
+const env = require('dotenv');
+env.config();
 
+const port = process.env.PORT||8000;
+// Connecting to MongoDB
+const MONGO_URI = process.env.MONGO_URI;
+const config = { useNewUrlParser: true, useUnifiedTopology: true };
+const connectDB = async () => {
+  try {
+    await mongoose.connect(MONGO_URI, config);
+    console.log("✅ MongoDB Connected Successfully");
+    app.listen(port,"0.0.0.0", ()=>{
+  console.log(`Server is RUNNING on port: http://127.0.0.1:${port}`);
+})
+  } catch (error) {
+    console.error("❌ MongoDB Connection Error:", error.message);
+    process.exit(1);
+  }
+};
+connectDB();
 
-dotenv.config();
-const authController = require("./Controller/authController.js").signup;
-//middleware
-app.use(express.json());
-app.use(cors());
-app.use(express.urlencoded({ extended: true }));
-app.use(cookieParser());
-
-//Importing Path
-const courseRoute = require("./routeHandler/courseRoute.js");
-const homeRoute = require("./routeHandler/homeRoute.js");
-const registerRoute = require('./routeHandler/registerRoute.js');
-const enrollRoute = require('./routeHandler/enrollRoute.js');
-const forgotPasswordRoute = require('./routeHandler/forgotPasswordRoute.js');
-const resetPasswordRoute = require('./routeHandler/resetPasswordRoute.js');
-const submitContactRoute = require('./routeHandler/submitContactRoute.js');
-const profileRoute = require("./routeHandler/profileRoute.js");
-const loginRoute = require('./routeHandler/loginRoute.js');
-const logoutRoute = require('./routeHandler/logoutRoute.js')
-
-// Configure session middleware
-app.use(session({
-  secret: process.env.SESSION_SECRET,
-  resave: false,
-  saveUninitialized: false,
-  cookie: { secure: false, maxAge: 24 * 60 * 60 * 1000 } // 1 day
-}));
-
-
-app.use('/images', express.static(path.join(__dirname, 'Images')));
-app.use('/design', express.static(path.join(__dirname, 'Design')));
-// reading files
-
-
-const contactPage = fs.readFileSync(path.join(__dirname, "Templates/Contact.html"), "utf8");
-const blogPage = fs.readFileSync(path.join(__dirname, "Templates/Blog.html"), "utf8");
-
-
-//GET requests
-app.get(['/home', '/'], homeRoute);
-app.get('/course/:id', courseRoute);
-app.get('/enroll', enrollRoute);
-app.get('/login', loginRoute)
-app.get('/profile', loginRoute); //Autharisation korbo (TODO)
-app.get('/logout', logoutRoute);
-
-//POST requests
-app.post('/profile', profileRoute)
-app.post('/forgot-password', forgotPasswordRoute);
-app.post('/reset-password', resetPasswordRoute );
-app.post('/register', registerRoute);
-
-
-// Contact page route
-app.get('/contact', (req, res) => {
-  res.set('Content-Type', 'text/html');
-  res.status(200).send(contactPage);
-});
-app.post('/submit-contact', submitContactRoute);
-// Blog page route
-app.get('/blog', (req, res) => {
-  res.set('Content-Type', 'text/html');
-  res.status(200).send(blogPage);
-});
-app.get('/forgot-password', (req, res) => {
-  const forgotPasswordPage = fs.readFileSync(path.join(__dirname, "Templates/forgot-password.html"), "utf8");
-  res.set('Content-Type', 'text/html');
-  res.status(200).send(forgotPasswordPage);
-});
-app.get('/reset-password', (req, res) => {
-  const resetPasswordPage = fs.readFileSync(path.join(__dirname, "Templates/reset-password.html"), "utf8");
-  res.set('Content-Type', 'text/html');
-  res.status(200).send(resetPasswordPage);
-});
-
-
-module.exports = app;

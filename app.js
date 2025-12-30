@@ -58,8 +58,12 @@ app.get('/logout', logoutRoute);
 //POST requests
 app.post('/profile', profileRoute)
 app.post('/forgot-password', forgotPasswordRoute);
-app.post('/reset-password', resetPasswordRoute );
+app.post('/reset-password', resetPasswordRoute);
 app.post('/register', registerRoute);
+
+// Chat Route
+const chatRoute = require('./routeHandler/chatRoute.js');
+app.post('/api/chat', chatRoute);
 
 
 // Contact page route

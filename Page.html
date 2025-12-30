@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,10 +10,11 @@
     <link rel="stylesheet" type="text/css" href="Design\page.css">
 
 </head>
+
 <body>
     <header>
         <a href="/home"><img src={%logo%} width="200" height="100" alt="GenZ IT"></a>
-        
+
         <!-- Individual menu items -->
         <nav>
             <a href="/home" class="menu-item">Home</a>
@@ -23,10 +25,10 @@
             <a href="/profile" class="menu-item">Profile</a>
         </nav>
     </header>
-   
+
     <section id="home" class="banner">
         <div class="container">
-            
+
             <h2>Skill Up and Secure Your Futures</h2>
             <p>We provide 100% paid internship opportunities after course completion</p>
         </div>
@@ -38,8 +40,8 @@
 
     <section id="courses" class="courses-section">
         <div class="container">
-            
-            
+
+
             <!-- Add the search bar here -->
             <!-- <div class="search-bar">
                 <input type="text" placeholder="Search courses..." id="searchInput">
@@ -72,61 +74,61 @@
                     <p>Build powerful Android apps from scratch using Java/Kotlin and Android Studio.</p>
                     <a href="/course/4" class="btn">View Details</a>
                 </div>
-                
+
                 <div class="course-item">
                     <h3>Data Analysis with Excel</h3>
                     <p>Harness Excel for data analysis with pivot tables, charts, and dashboards.</p>
                     <a href="/course/5" class="btn">View Details</a>
                 </div>
-                
+
                 <div class="course-item">
                     <h3>Social Media Marketing</h3>
                     <p>Boost your brand with strategies for Facebook, Instagram, LinkedIn, and more.</p>
                     <a href="/course/6" class="btn">View Details</a>
                 </div>
-                
+
                 <div class="course-item">
                     <h3>Cybersecurity Fundamentals</h3>
                     <p>Learn to secure systems through ethical hacking, firewalls, and data protection.</p>
                     <a href="/course/7" class="btn">View Details</a>
                 </div>
-                
+
                 <div class="course-item">
                     <h3>WordPress Development</h3>
                     <p>Build and customize websites with WordPress themes, plugins, and SEO tools.</p>
                     <a href="/course/8" class="btn">View Details</a>
                 </div>
-                
+
                 <div class="course-item">
                     <h3>Full Stack Development</h3>
                     <p>Master both front-end and back-end with HTML, CSS, JS, React, Node.js, and more.</p>
                     <a href="/course/9" class="btn">View Details</a>
                 </div>
-                
+
                 <div class="course-item">
                     <h3>Video Editing</h3>
                     <p>Create professional videos using Adobe Premiere Pro and After Effects.</p>
                     <a href="/course/10" class="btn">View Details</a>
                 </div>
-                
+
                 <div class="course-item">
                     <h3>Python Programming</h3>
                     <p>Learn Python basics to advanced: OOP, data structures, and data analysis.</p>
                     <a href="/course/11" class="btn">View Details</a>
                 </div>
-                
+
                 <div class="course-item">
                     <h3>UI/UX Design</h3>
                     <p>Design seamless user experiences with Figma, wireframes, and prototypes.</p>
                     <a href="/course/12" class="btn">View Details</a>
                 </div>
-                
+
                 <div class="course-item">
                     <h3>Machine Learning Basics</h3>
                     <p>Dive into AI with supervised learning, regression, and TensorFlow tools.</p>
                     <a href="/course/13" class="btn">View Details</a>
                 </div>
-                
+
             </div>
         </div>
     </section>
@@ -134,7 +136,15 @@
     <section id="about" class="about-section">
         <div class="container">
             <h2>About Gen-Z IT</h2>
-            <p class="about">GenZ IT is an educational institution dedicated to providing training in essential modern skills such as Content Writing, Graphic Design, Web Design, and Digital Marketing. With the motto "Learn Today, Lead Tomorrow," they aim to equip learners with the knowledge and skills necessary to excel in their careers. GenZ IT boasts a team of experienced trainers and offers flexible learning options to suit various schedules. They emphasize job assurance through job placement assistance and provide comprehensive career guidance to help students achieve their professional goals. Located at Road 4, Dhanmondi, Dhaka, with an additional branch in Kushtia, GenZ IT ensures accessibility for students in different regions. Additionally, they offer 100% paid internship opportunities upon course completion, enabling students to gain valuable practical experience.</p>
+            <p class="about">GenZ IT is an educational institution dedicated to providing training in essential modern
+                skills such as Content Writing, Graphic Design, Web Design, and Digital Marketing. With the motto "Learn
+                Today, Lead Tomorrow," they aim to equip learners with the knowledge and skills necessary to excel in
+                their careers. GenZ IT boasts a team of experienced trainers and offers flexible learning options to
+                suit various schedules. They emphasize job assurance through job placement assistance and provide
+                comprehensive career guidance to help students achieve their professional goals. Located at Road 4,
+                Dhanmondi, Dhaka, with an additional branch in Kushtia, GenZ IT ensures accessibility for students in
+                different regions. Additionally, they offer 100% paid internship opportunities upon course completion,
+                enabling students to gain valuable practical experience.</p>
         </div>
     </section>
 
@@ -148,5 +158,128 @@
         </div>
     </footer>
     <script src="script.js"></script>
+
+    <!-- Chatbot Interface -->
+    <div id="chat-button"
+        style="position: fixed; bottom: 20px; right: 20px; background-color: #007bff; color: white; padding: 15px; border-radius: 50%; cursor: pointer; box-shadow: 0 4px 8px rgba(0,0,0,0.2); z-index: 1000;">
+        🤖
+    </div>
+
+    <div id="chat-window"
+        style="display: none; position: fixed; bottom: 80px; right: 20px; width: 300px; height: 400px; background-color: white; border: 1px solid #ccc; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); z-index: 1000; flex-direction: column;">
+        <div
+            style="background-color: #007bff; color: white; padding: 10px; border-radius: 10px 10px 0 0; font-weight: bold; display: flex; justify-content: space-between;">
+            <span>Gen-Z Assistant</span>
+            <span id="close-chat" style="cursor: pointer;">&times;</span>
+        </div>
+        <div id="chat-messages"
+            style="flex: 1; padding: 10px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px;">
+            <div
+                style="background-color: #f1f1f1; padding: 8px; border-radius: 5px; align-self: flex-start; max-width: 80%;">
+                Hello! How can I help you today?
+            </div>
+        </div>
+        <div style="padding: 10px; border-top: 1px solid #ccc; display: flex;">
+            <input type="text" id="chat-input" placeholder="Type a message..."
+                style="flex: 1; padding: 5px; border: 1px solid #ccc; border-radius: 3px;">
+            <button id="send-btn"
+                style="background-color: #007bff; color: white; border: none; padding: 5px 10px; margin-left: 5px; border-radius: 3px; cursor: pointer;">Send</button>
+        </div>
+    </div>
+
+    <script>
+        const chatButton = document.getElementById('chat-button');
+        const chatWindow = document.getElementById('chat-window');
+        const closeChat = document.getElementById('close-chat');
+        const chatInput = document.getElementById('chat-input');
+        const sendBtn = document.getElementById('send-btn');
+        const chatMessages = document.getElementById('chat-messages');
+
+        chatButton.addEventListener('click', () => {
+            chatWindow.style.display = 'flex';
+        });
+
+        closeChat.addEventListener('click', () => {
+            chatWindow.style.display = 'none';
+        });
+
+        async function sendMessage() {
+            const message = chatInput.value.trim();
+            if (!message) return;
+
+            // Add user message
+            addMessage(message, 'user');
+            chatInput.value = '';
+
+            // Loading indicator
+            const loadingId = addMessage('Thinking...', 'ai');
+
+            try {
+                const response = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ message })
+                });
+
+                const data = await response.json();
+
+                // Remove loading and add AI response
+                const loadingElement = document.getElementById(loadingId);
+                if (loadingElement) loadingElement.remove();
+
+                if (data.reply) {
+                    addMessage(data.reply, 'ai');
+                } else {
+                    addMessage('Sorry, I encountered an error.', 'ai');
+                }
+
+            } catch (error) {
+                console.error('Error:', error);
+                const loadingElement = document.getElementById(loadingId);
+                if (loadingElement) loadingElement.remove();
+                addMessage('Sorry, something went wrong. Please ensure the server is running.', 'ai');
+            }
+        }
+
+        sendBtn.addEventListener('click', sendMessage);
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendMessage();
+        });
+
+        function addMessage(text, sender) {
+            const div = document.createElement('div');
+            const id = 'msg-' + Date.now();
+            div.id = id;
+            div.style.padding = '8px';
+            div.style.borderRadius = '5px';
+            div.style.maxWidth = '80%';
+
+            if (sender === 'user') {
+                div.style.backgroundColor = '#007bff';
+                div.style.color = 'white';
+                div.style.alignSelf = 'flex-end';
+            } else {
+                div.style.backgroundColor = '#f1f1f1';
+                div.style.color = 'black';
+                div.style.alignSelf = 'flex-start';
+
+                // Highlight API errors
+                if (text.includes("API Error") || text.includes("ACTION REQUIRED")) {
+                    div.style.backgroundColor = '#ffebee';
+                    div.style.color = '#c62828';
+                    div.style.border = '1px solid #c62828';
+                }
+            }
+
+            div.textContent = text;
+            chatMessages.appendChild(div);
+            // Auto scroll
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            return id;
+        }
+    </script>
 </body>
+
 </html>

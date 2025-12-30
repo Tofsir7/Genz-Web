@@ -27,7 +27,7 @@ const profileRoute = async (req, res) => {
     const token = jwt.sign({ email, password, role: studentInfo.role }, process.env.JWT_SECRET, { expiresIn: "30d" });
     res.cookie("token", token, { httpOnly: true })
 
-    console.log(`The token is : ${token}`);
+    //console.log(`The token is : ${token}`);
 
     // Role-based redirection
     if (studentInfo.role === 'admin') {

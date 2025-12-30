@@ -69,6 +69,25 @@
             <p>© 2025 Gen-Z IT. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // Auto-select course based on URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const courseParam = urlParams.get('course');
+
+        if (courseParam) {
+            const select = document.getElementById('course');
+            // Decode URI component to handle spaces (e.g. Web%20Design -> Web Design)
+            const courseName = decodeURIComponent(courseParam);
+
+            for (let i = 0; i < select.options.length; i++) {
+                if (select.options[i].value === courseName) {
+                    select.selectedIndex = i;
+                    break;
+                }
+            }
+        }
+    </script>
 </body>
 
 </html>

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Course Details</title>
     <link rel="stylesheet" type="text/css" href="\Design\template-course.css">
 </head>
+
 <body>
     <header>
         <a href="/home"><img src="/Images/GenZ-logo.png" width="200" height="100" alt="GenZ IT"></a>
@@ -29,8 +31,8 @@
             <p><strong>Discount:</strong> 100%</p>
             <p><strong>Duration:</strong> {%COURSEDURATION%}</p>
             <p><strong>Description:</strong> {%COURSEDESCRIPTION%}</p>
-            
-            <a href="/enroll" class="enroll">Enroll Now</a>
+
+            <a href="/enroll?course={%COURSENAME%}" class="enroll">Enroll Now</a>
         </div>
     </div>
 
@@ -40,4 +42,5 @@
         </div>
     </footer>
 </body>
+
 </html>

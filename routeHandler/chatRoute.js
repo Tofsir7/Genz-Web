@@ -5,7 +5,7 @@ dotenv.config();
 
 // Initialize Google Generative AI
 // Using the key provided by the user directly to ensure it works
-const genAI = new GoogleGenerativeAI("AIzaSyCmbOio_M-iqy_067u1Ou1ix23VSikzfDg");
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 const chatRoute = async (req, res) => {
     try {

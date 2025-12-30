@@ -65,6 +65,11 @@ app.post('/register', registerRoute);
 const chatRoute = require('./routeHandler/chatRoute.js');
 app.post('/api/chat', chatRoute);
 
+// Admin Route
+const adminRoute = require('./routeHandler/adminRoute.js');
+const adminAuth = require('./Controller/adminAuth.js');
+app.use('/admin', adminAuth, adminRoute);
+
 
 // Contact page route
 app.get('/contact', (req, res) => {

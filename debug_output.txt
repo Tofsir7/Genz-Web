@@ -1,0 +1,26 @@
+Connected.
+
+--- COURSES ---
+Name: "Digital Marketing" | Fee: 6000
+Name: "Content Writing" | Fee: 4000
+Name: "Graphics Design" | Fee: 12000
+Name: "Web Design" | Fee: 10000
+Name: "App Development (Android)" | Fee: 14000
+Name: "Data Analysis with Excel" | Fee: 6000
+Name: "Social Media Marketing" | Fee: 5500
+Name: "Cybersecurity Fundamentals" | Fee: 9000
+Name: "WordPress Development" | Fee: 8500
+Name: "Full Stack Development" | Fee: 18000
+Name: "Video Editing" | Fee: 8000
+Name: "Python Programming" | Fee: 7000
+Name: "UI/UX Design" | Fee: 11000
+Name: "Machine Learning Basics" | Fee: 13000
+
+--- STUDENTS ---
+Student: Khayrul Hassan Khan | Course: "Digital Marketing"
+Student: Waly Hasan Shahed | Course: "Content Writing"
+Student: Tofsir Khan | Course: "Digital Marketing"
+Student: Khalid | Course: "Digital Marketing"
+Student: Tofsir Hasan | Course: "Digital Marketing"
+Student: Md Khalid Hasan | Course: "Data Analysis with Exel"
+Student: Tofsir Hasan | Course: "Graphics Design"

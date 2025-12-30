@@ -28,6 +28,7 @@ const submitContactRoute = require('./routeHandler/submitContactRoute.js');
 const profileRoute = require("./routeHandler/profileRoute.js");
 const loginRoute = require('./routeHandler/loginRoute.js');
 const logoutRoute = require('./routeHandler/logoutRoute.js')
+const enrollCourseRoute = require('./routeHandler/enrollCourseRoute.js');
 
 // Configure session middleware
 app.use(session({
@@ -60,6 +61,12 @@ app.post('/profile', profileRoute)
 app.post('/forgot-password', forgotPasswordRoute);
 app.post('/reset-password', resetPasswordRoute);
 app.post('/register', registerRoute);
+app.post('/enroll-course', enrollCourseRoute);
+app.get('/register', (req, res) => {
+  const registerPage = fs.readFileSync(path.join(__dirname, "Templates/Register.html"), "utf8");
+  res.set('Content-Type', 'text/html');
+  res.status(200).send(registerPage);
+});
 
 // Chat Route
 const chatRoute = require('./routeHandler/chatRoute.js');

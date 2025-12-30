@@ -1,11 +1,12 @@
 const bcrypt = require("bcrypt");
 const fs = require('fs');
-const {Student} = require('../Models/Students')
+const { Student } = require('../Models/Students')
 
 const registerRoute = async (req, res) => {
   try {
     const welcomeCard = fs.readFileSync('Templates/welcome-card.html', "utf8");
-    const enrollForm = fs.readFileSync('Templates/Enroll-form.html', "utf8");
+    let enrollForm = fs.readFileSync('Templates/Enroll-form.html', "utf8");
+    let registerForm = fs.readFileSync('Templates/Register.html', "utf8");
     const { fullName, email, password, dob, gender, course } = req.body;
     if (await Student.findOne({ email })) {
       const warningMessage = `
@@ -13,7 +14,8 @@ const registerRoute = async (req, res) => {
           <i>*This e-mail already registered*</i>
         </p>
       `;
-      const updatedForm = enrollForm.replace(
+      let targetForm = course ? enrollForm : registerForm;
+      const updatedForm = targetForm.replace(
         '<p id="validationErrorMessage"></p>',
         `${warningMessage}`
       );
@@ -29,7 +31,8 @@ const registerRoute = async (req, res) => {
           <i>*Password length should be atleast 8, 1 character and alphabet*</i>
         </p>
       `;
-      const updatedForm = enrollForm.replace(
+      let targetForm = course ? enrollForm : registerForm;
+      const updatedForm = targetForm.replace(
         '<p id="validationErrorMessage"></p>',
         `${warningMessage}`
       );

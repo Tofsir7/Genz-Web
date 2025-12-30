@@ -6,7 +6,7 @@ const studentSchema = new mongoose.Schema({
   password: { type: String, required: true },
   dob: { type: Date, required: true },
   gender: { type: String, enum: ['male', 'female', 'other'], required: true },
-  course: { type: String, required: true },
+  course: { type: String },
   role: { type: String, enum: ['student', 'admin'], default: 'student' },
   resetOTP: { type: String, default: null },
   otpExpiresAt: { type: Date, default: null },

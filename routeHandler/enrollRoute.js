@@ -17,6 +17,9 @@ const enrollRoute = async (req, res) => {
         // Auto-fill Data
         enrollForm = enrollForm.replace('name="fullName" placeholder="Enter your full name"', `name="fullName" value="${user.fullName}" readonly`);
         enrollForm = enrollForm.replace('name="email" placeholder="Enter your email"', `name="email" value="${user.email}" readonly`);
+
+        // Change form action to enrollment route
+        enrollForm = enrollForm.replace('action="/register"', 'action="/enroll-course"');
       }
     } catch (err) {
       console.log("Token verification failed in enroll:", err.message);

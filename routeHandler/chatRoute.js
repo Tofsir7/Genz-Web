@@ -1,11 +1,12 @@
-const { GoogleGenerativeAI } = require("@google/generative-ai");
-const { Course } = require("../Models/Students");
 const dotenv = require('dotenv');
 dotenv.config();
+const { GoogleGenerativeAI } = require("@google/generative-ai");
+const { Course } = require("../Models/Students");
 
 // Initialize Google Generative AI
 // Using the key provided by the user directly to ensure it works
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+//console.log("API_KEY", process.env.GEMINI_API_KEY);
 
 const chatRoute = async (req, res) => {
     try {
